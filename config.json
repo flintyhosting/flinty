@@ -1,6 +1,6 @@
 {
     "token": "NzQ4MjkxOTI0NjY1ODI3Mzg4.X0bTKQ.uBDs-P85q38fgLUy6HWDuLCH87o",
     "prefix": "$",
-    "mongoPath": "mongodb+srv://flintyadmin:FlintyAdmin22@flintylounge.msbsj.mongodb.net/flintylounge?retryWrites=true&w=majority",
+    "mongoPath": "mongodb+srv://flintyhosting:flintyhosting22@flintyhosting.q5qqi.mongodb.net/flintyhosting?retryWrites=true&w=majority",
     "devToken": "450709076083474452"
 }
