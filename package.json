@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/flintyhosting/flinty#readme",
   "dependencies": {
-    "discord.js": "^12.5.3"
+    "ascii-table": "^0.0.9",
+    "discord.js": "^12.5.3",
+    "mongoose": "^6.3.1"
   }
 }
