@@ -113,6 +113,11 @@ else {
 });
 /*/
 
+client.on("channelCreate", channel => {
+  const embed = new Discord.MessageEmbed()
+  
+})
+
 client.on("message", async message => {
   const prefix = `${settings.prefix}`;
 
