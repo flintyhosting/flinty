@@ -21,7 +21,7 @@ const mongo = require('./mongo')
 client.on("ready", async () => {
   console.log(`Hi, ${client.user.username} is now online!`);
 
-  client.user.setActivity("with fire.", { type: 'PLAYING' });
+  client.user.setActivity("being developed. Not responding...", { type: 'PLAYING' });
 
   await mongo().then((mongoose) => {
     try {
