@@ -115,7 +115,15 @@ else {
 
 client.on("channelCreate", channel => {
   const embed = new Discord.MessageEmbed()
-  
+  .setFooter('Flinty Log', channel.guild.iconURL({dynamic: true}))
+  .setTimestamp()
+  .addField('Channel:', `<#${channel.id}>`, true)
+  .addField('Channel ID:', `${channel.id}`, false)
+  .setColor('RANDOM')
+
+  const rChann = channel.guild.channels.cache.find(r => r.id === '964206562602287105')
+
+  rChann.send(embed)
 })
 
 client.on("message", async message => {
