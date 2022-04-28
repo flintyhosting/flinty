@@ -119,25 +119,64 @@ client.on("channelCreate", channel => {
   .setTimestamp()
   .addField('Channel:', `<#${channel.id}>`, true)
   .addField('Channel ID:', `${channel.id}`, false)
-  .setColor('ffff00')
+  .setColor('00ff00')
 
   const rChann = channel.guild.channels.cache.find(r => r.id === '964206562602287105')
 
   rChann.send(embed)
 })
 
-client.on("channelUpdate", oldChannel, newChannel => {
+client.on("channelUpdate", (oldChannel, newChannel) => {
   const embed = new Discord.MessageEmbed()
   .setFooter('Flinty Log', oldChannel.guild.iconURL({dynamic: true}))
   .setTimestamp()
   .addField('Old Name', `${oldChannel.name}`)
-  .addField("New Name:", `<#${newChannel.id}>\n(${newChannel.id})`)
+  .addField("New Name:", `${newChannel.id}\n(${newChannel.id})`)
   .setColor('ffff00')
+
+  const rChann = oldChannel.guild.channels.cache.find(r => r.id === '964206562602287105')
+
+  rChann.send(embed)
+
+})
+
+client.on("channelDelete", (channel) => {
+  const embed = new Discord.MessageEmbed()
+  .setFooter('Flinty Log', channel.guild.iconURL({dynamic: true}))
+  .setTimestamp()
+  .addField('Name', `${channel.name}\n(${channel.id})`)
+  .addField('Channel:', `<#${channel.id}>`)
+  .setColor('ff0000')
 
   const rChann = channel.guild.channels.cache.find(r => r.id === '964206562602287105')
 
   rChann.send(embed)
-  
+})
+
+client.on("emojiCreate", (emoji) => {
+  const embed = new Discord.Message()
+  .setFooter('Flinty Log', `<:${emoji.name}:${emoji.id}>`)
+  .setThumbnail(`<:${emoji.name}:${emoji.id}>`)
+  .setTimestamp()
+  .setDescription(`Emoji **${emoji.name}** successfully created with a value of \`${emoji.id}\`. <:${emoji.name}:${emoji.id}>`)
+  .setColor('00ff00')
+
+  const rChann = emoji.guild.channels.cache.find(r => r.id === '964206562602287105')
+
+  rChann.send(embed)
+})
+
+client.on("emojiDelete", (emoji) => {
+  const embed = new Discord.Message()
+  .setFooter('Flinty Log', `<:${emoji.name}:${emoji.id}>`)
+  .setThumbnail(`<:verified:959897875050033222>`)
+  .setTimestamp()
+  .setDescription(`Emoji **${emoji.name}** successfully deleted with a value of \`${emoji.id}\`. <:${emoji.name}:${emoji.id}>`)
+  .setColor('ff0000')
+
+  const rChann = emoji.guild.channels.cache.find(r => r.id === '964206562602287105')
+
+  rChann.send(embed)
 })
 
 client.on("message", async message => {
