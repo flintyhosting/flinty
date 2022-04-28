@@ -167,7 +167,7 @@ client.on("emojiCreate", (emoji) => {
 })
 
 client.on("emojiDelete", (emoji) => {
-  const embed = new Discord.Message()
+  const embed = new Discord.MessageEmbed()
   .setFooter('Flinty Log', `<:${emoji.name}:${emoji.id}>`)
   .setThumbnail(`<:verified:959897875050033222>`)
   .setTimestamp()
@@ -177,6 +177,20 @@ client.on("emojiDelete", (emoji) => {
   const rChann = emoji.guild.channels.cache.find(r => r.id === '964206562602287105')
 
   rChann.send(embed)
+})
+
+client.on("emojiUpdate", (oldEmoji, newEmoji) => {
+  const embed = new Discord.MessageEmbed()
+  .setFooter('Flinty Log', oldEmoji.guild.iconURL({dynamic: true}))
+  .setTimestamp()
+  .addField('Old Name', `${oldEmoji.name}`)
+  .addField("New Name:", `${newEmoji.name}\n(${newEmoji.id})`)
+  .setColor('ffff00')
+
+  const rChann = oldEmoji.guild.channels.cache.find(r => r.id === '964206562602287105')
+
+  rChann.send(embed)
+
 })
 
 client.on("message", async message => {
