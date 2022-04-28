@@ -119,11 +119,25 @@ client.on("channelCreate", channel => {
   .setTimestamp()
   .addField('Channel:', `<#${channel.id}>`, true)
   .addField('Channel ID:', `${channel.id}`, false)
-  .setColor('RANDOM')
+  .setColor('ffff00')
 
   const rChann = channel.guild.channels.cache.find(r => r.id === '964206562602287105')
 
   rChann.send(embed)
+})
+
+client.on("channelUpdate", oldChannel, newChannel => {
+  const embed = new Discord.MessageEmbed()
+  .setFooter('Flinty Log', oldChannel.guild.iconURL({dynamic: true}))
+  .setTimestamp()
+  .addField('Old Name', `${oldChannel.name}`)
+  .addField("New Name:", `<#${newChannel.id}>\n(${newChannel.id})`)
+  .setColor('ffff00')
+
+  const rChann = channel.guild.channels.cache.find(r => r.id === '964206562602287105')
+
+  rChann.send(embed)
+  
 })
 
 client.on("message", async message => {
