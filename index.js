@@ -155,8 +155,7 @@ client.on("channelDelete", (channel) => {
 
 client.on("emojiCreate", (emoji) => {
   const embed = new Discord.Message()
-  .setFooter('Flinty Log', `<:${emoji.name}:${emoji.id}>`)
-  .setThumbnail(`<:${emoji.name}:${emoji.id}>`)
+  .setFooter('Flinty Log', emoji.guild.iconURL({dynamic: true}))
   .setTimestamp()
   .setDescription(`Emoji **${emoji.name}** successfully created with a value of \`${emoji.id}\`. <:${emoji.name}:${emoji.id}>`)
   .setColor('00ff00')
@@ -168,8 +167,7 @@ client.on("emojiCreate", (emoji) => {
 
 client.on("emojiDelete", (emoji) => {
   const embed = new Discord.MessageEmbed()
-  .setFooter('Flinty Log', `<:${emoji.name}:${emoji.id}>`)
-  .setThumbnail(`<:verified:959897875050033222>`)
+  .setFooter('Flinty Log', emoji.guild.iconURL({dynamic: true}))
   .setTimestamp()
   .setDescription(`Emoji **${emoji.name}** successfully deleted with a value of \`${emoji.id}\`. <:${emoji.name}:${emoji.id}>`)
   .setColor('ff0000')
